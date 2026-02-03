@@ -9,7 +9,6 @@ Aquí aprenderás a crear tools más complejas:
 - Tools que simulan operaciones reales
 """
 
-import json
 from typing import Dict, List, Optional
 
 from fastmcp import FastMCP

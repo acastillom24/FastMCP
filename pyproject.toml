@@ -5,38 +5,11 @@ build-backend = "hatchling.build"
 [project]
 name = "fastmcp-learning"
 version = "0.1.0"
-description = "Curso completo de FastMCP - Desde lo básico hasta lo avanzado en 7 días"
-readme = "README.md"
+description = "Curso completo de FastMCP"
 requires-python = ">=3.11"
-authors = [
-    {name = "Tu Nombre", email = "tu.email@example.com"}
-]
-license = {text = "MIT"}
-keywords = ["fastmcp", "mcp", "model-context-protocol", "learning"]
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-]
-
 dependencies = [
-    "fastmcp>=3.0.0",
+    "fastmcp>=3.0.0b1",
 ]
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.0",
-    "black>=23.0",
-    "ruff>=0.1.0",
-    "mypy>=1.0",
-]
-
-[project.urls]
-Homepage = "https://gofastmcp.com"
-Documentation = "https://gofastmcp.com"
-Repository = "https://github.com/jlowin/fastmcp"
-Discord = "https://discord.gg/uu8dJCgttd"
+[tool.hatch.build.targets.wheel]
+packages = ["src"]  # o el nombre de tu carpeta con código

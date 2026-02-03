@@ -80,7 +80,7 @@ if __name__ == "__main__":
 # ═══════════════════════════════════════════════════════════════════
 
 # Terminal:
-# $ python 01_hola_mundo.py
+# $ python 01_fundamentos/01_hola_mundo.py
 
 # Verás algo como:
 # ```
@@ -99,23 +99,3 @@ if __name__ == "__main__":
 #
 # Sin FastMCP necesitarías 200+ líneas de código complejo
 # Con FastMCP son 15 líneas claras y simples
-
-
-print("""
-════════════════════════════════════════════════════════════════
-         🎉 ¡FELICIDADES! 🎉
-════════════════════════════════════════════════════════════════
-
-Has creado tu primer servidor MCP. Este servidor:
-
-✅ Acepta conexiones de clientes MCP
-✅ Expone la herramienta "saludar" 
-✅ Valida automáticamente tipos (nombre debe ser string)
-✅ Maneja errores automáticamente
-✅ Genera esquemas JSON válidos
-✅ Es production-ready
-
-SIGUIENTE: Ve a 02_conceptos.py para aprender más sobre
-herramientas, recursos y prompts.
-════════════════════════════════════════════════════════════════
-""")

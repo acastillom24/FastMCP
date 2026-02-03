@@ -3,6 +3,7 @@
 ## 📌 ¿Qué es Model Context Protocol (MCP)?
 
 MCP es un protocolo abierto que permite:
+
 - 🔌 **Conectar** modelos de IA (Claude, GPT, etc.) con herramientas tuyas
 - 📊 **Compartir** datos y recursos de forma segura
 - 🎯 **Controlar** exactamente qué expones a cada usuario/cliente
@@ -11,6 +12,7 @@ MCP es un protocolo abierto que permite:
 ## 📌 ¿Por qué FastMCP?
 
 Sin FastMCP, construir un servidor MCP requiere:
+
 - ✗ Manejo manual de serialización/deserialización JSON
 - ✗ Validación compleja de esquemas
 - ✗ Implementación del protocolo MCP completo
@@ -18,6 +20,7 @@ Sin FastMCP, construir un servidor MCP requiere:
 - ✗ Documentación y generación de esquemas
 
 Con FastMCP:
+
 - ✅ Decoradores simples (como Flask/FastAPI)
 - ✅ Validación automática
 - ✅ Protocolo manejado automáticamente
@@ -27,7 +30,9 @@ Con FastMCP:
 ## 📌 Los 3 Pilares de FastMCP
 
 ### 1. **COMPONENTS** (Qué expones)
+
 Son los elementos que tu servidor ofrece:
+
 - **Tools:** Funciones que el cliente puede ejecutar
 - **Resources:** Datos o archivos que el cliente puede acceder
 - **Prompts:** Instrucciones predefinidas para usar tu servidor
@@ -50,7 +55,9 @@ def mi_prompt(nombre: str) -> str:
 ```
 
 ### 2. **PROVIDERS** (De dónde vienen)
+
 Especifican cómo se crean los componentes:
+
 - Funciones decoradas (lo más común)
 - Archivos en disco
 - Especificaciones OpenAPI
@@ -69,7 +76,9 @@ provider = FileProvider(path="/mi/ruta")
 ```
 
 ### 3. **TRANSFORMS** (Qué ven los clientes)
+
 Modifican qué ve cada cliente:
+
 - **Namespacing:** Agrupar herramientas por categoría
 - **Filtering:** Mostrar solo ciertas herramientas a ciertos usuarios
 - **Authorization:** Control de acceso
@@ -88,23 +97,19 @@ else:
 ## 🚀 INSTALACIÓN
 
 ### Opción 1: Con pip (Recomendado)
+
 ```bash
-pip install fastmcp
+pip install "fastmcp>=3.0.0b1"
 ```
 
 ### Opción 2: Con uv (Más rápido)
-```bash
-uv pip install fastmcp
-```
 
-### Opción 3: Desde source (Desarrollo)
 ```bash
-git clone https://github.com/jlowin/fastmcp.git
-cd fastmcp
-pip install -e .
+uv add "fastmcp>=3.0.0b1"
 ```
 
 ### Verificar instalación
+
 ```bash
 python -c "import fastmcp; print(fastmcp.__version__)"
 ```
@@ -140,7 +145,7 @@ Antes de continuar, responde:
 ## 🚀 RETO 1
 
 Antes de ir a ejemplos más complejos, trata de:
+
 1. Instalar FastMCP
 2. Crear un servidor simple con 2 tools
 3. Ejecutarlo y ver la salida
-

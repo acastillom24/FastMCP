@@ -41,7 +41,7 @@ def calcular_suma(a: int, b: int) -> int:
 # └─ El cliente puede LEER estos datos
 # └─ NO son ejecutables como las tools
 # └─ Útil para datos, archivos, config, etc.
-@mcp.resource
+@mcp.resource("config://sistema")
 def obtener_configuracion() -> dict:
     """Retorna la configuración del sistema.
     

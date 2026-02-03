@@ -2,7 +2,7 @@
 
 ## 📋 Estructura del Repositorio
 
-```
+```bash
 FastMCP/
 ├── PLAN_APRENDIZAJE.md           ← Empieza aquí
 ├── pyproject.toml                ← Dependencias
@@ -24,6 +24,7 @@ FastMCP/
 ## 🎯 PLAN DIARIO
 
 ### DÍA 1-2: FUNDAMENTOS ✅
+
 **Duración:** 2-3 horas  
 **Objetivo:** Entender qué es MCP y crear tu primer servidor  
 
@@ -37,6 +38,7 @@ FastMCP/
 ---
 
 ### DÍA 3: COMPONENTES (Próxima sesión)
+
 **Duración:** 2-3 horas  
 **Objetivo:** Dominar tools, resources y prompts  
 
@@ -48,6 +50,7 @@ FastMCP/
 ---
 
 ### DÍA 4: PROVEEDORES (Próxima sesión)
+
 **Duración:** 2-3 horas  
 **Objetivo:** Entender de dónde vienen los componentes  
 
@@ -59,6 +62,7 @@ FastMCP/
 ---
 
 ### DÍA 5: TRANSFORMACIONES (Próxima sesión)
+
 **Duración:** 2-3 horas  
 **Objetivo:** Controlar qué ve cada cliente  
 
@@ -70,6 +74,7 @@ FastMCP/
 ---
 
 ### DÍA 6: CLIENTES (Próxima sesión)
+
 **Duración:** 2-3 horas  
 **Objetivo:** Construir aplicaciones cliente-servidor  
 
@@ -81,6 +86,7 @@ FastMCP/
 ---
 
 ### DÍA 7: DEPLOYMENT (Próxima sesión)
+
 **Duración:** 2-3 horas  
 **Objetivo:** Llevar tu proyecto a producción  
 
@@ -95,16 +101,19 @@ FastMCP/
 ### Paso 1: Instalar FastMCP
 
 **Opción A: Con pip** (Recomendado)
+
 ```bash
 pip install fastmcp
 ```
 
 **Opción B: Con uv** (Más rápido)
+
 ```bash
 uv pip install fastmcp
 ```
 
 **Opción C: Instalar desde el repositorio**
+
 ```bash
 pip install -e .
 ```
@@ -125,6 +134,7 @@ python 01_hola_mundo.py
 ```
 
 Verás:
+
 ```
 [INFO] Server started...
 [INFO] Ready to handle requests
@@ -136,27 +146,31 @@ Verás:
 
 ## 📚 RECURSOS
 
-- **Documentación Oficial:** https://gofastmcp.com/
-- **GitHub:** https://github.com/jlowin/fastmcp
-- **Discord Community:** https://discord.gg/uu8dJCgttd
-- **Prefect Horizon:** https://www.prefect.io/horizon (Hosting gratuito)
+- **Documentación Oficial:** <https://gofastmcp.com/>
+- **GitHub:** <https://github.com/jlowin/fastmcp>
+- **Discord Community:** <https://discord.gg/uu8dJCgttd>
+- **Prefect Horizon:** <https://www.prefect.io/horizon> (Hosting gratuito)
 
 ---
 
 ## 🔑 CONCEPTOS CLAVE
 
 ### Model Context Protocol (MCP)
+
 Protocolo que permite conectar LLMs (Claude, GPT) con tus herramientas y datos.
 
 ### FastMCP
+
 Framework Python que simplifica la construcción de servidores MCP.
 
 ### Los 3 Pilares
+
 1. **Components:** Qué expones (tools, resources, prompts)
 2. **Providers:** De dónde vienen (funciones, archivos, APIs)
 3. **Transforms:** Qué ven los clientes (filtrado, autorización)
 
 ### Validación Automática
+
 FastMCP valida tipos de datos automáticamente. No necesitas escribir código de validación.
 
 ---
@@ -164,6 +178,7 @@ FastMCP valida tipos de datos automáticamente. No necesitas escribir código de
 ## ⚠️ TRAMPA COMÚN
 
 ❌ **INCORRECTO:** Olvidar el docstring
+
 ```python
 @mcp.tool
 def mi_herramienta(x: int):  # ¡Sin docstring!
@@ -171,6 +186,7 @@ def mi_herramienta(x: int):  # ¡Sin docstring!
 ```
 
 ✅ **CORRECTO:** Incluir docstring
+
 ```python
 @mcp.tool
 def mi_herramienta(x: int) -> int:
@@ -185,6 +201,7 @@ El docstring se convierte en documentación que ven los clientes.
 ## 🎓 FORMATO DE EJEMPLOS
 
 Cada ejemplo tiene:
+
 - 📌 **Conceptos clave** - Qué aprendes
 - 💻 **Código ejecutable** - Pruébalo ahora
 - 📖 **Explicación línea por línea** - Entiende cada parte
@@ -210,23 +227,28 @@ Cada ejemplo tiene:
 ## 🆘 SI TIENES PROBLEMAS
 
 ### "ModuleNotFoundError: No module named 'fastmcp'"
+
 ```bash
 pip install fastmcp
 ```
 
 ### "Python version must be 3.11 or higher"
+
 ```bash
 python --version  # Verifica tu versión
 # Si es < 3.11, instala Python 3.11+
 ```
 
 ### "Port already in use"
+
 FastMCP intenta usar un puerto que ya está ocupado. Cambia el puerto:
+
 ```python
 mcp.run(port=8001)  # Usa puerto 8001 en lugar de 8000
 ```
 
 ### "What's the difference between a Tool and Resource?"
+
 - **Tool:** Función que EL CLIENTE EJECUTA (acción)
 - **Resource:** Datos que EL CLIENTE LEE (información)
 

@@ -2,7 +2,7 @@
 
 ## 🎯 PLAN DE ESTA SESIÓN (2-3 horas)
 
-```
+```bash
 ESTA SESIÓN:
 ├─ 00:00-00:15  Instalar FastMCP y verificar
 ├─ 00:15-00:45  Leer FUNDAMENTOS teórico
@@ -19,11 +19,13 @@ ESTA SESIÓN:
 ### Paso 1: Abre una terminal en este directorio
 
 En Windows PowerShell o CMD:
+
 ```bash
 cd C:\Users\acastillom\Documents\personal\FastMCP
 ```
 
 En macOS/Linux:
+
 ```bash
 cd ~/Documents/personal/FastMCP
 ```
@@ -31,13 +33,7 @@ cd ~/Documents/personal/FastMCP
 ### Paso 2: Instala FastMCP
 
 ```bash
-pip install fastmcp
-```
-
-Si no funciona, intenta:
-```bash
-pip install --upgrade pip
-pip install fastmcp>=3.0.0
+uv add "fastmcp>=3.0.0b1"
 ```
 
 ### Paso 3: Verifica instalación
@@ -46,7 +42,7 @@ pip install fastmcp>=3.0.0
 python -c "import fastmcp; print(f'✓ FastMCP {fastmcp.__version__}')"
 ```
 
-Deberías ver algo como: `✓ FastMCP 3.0.0`
+Deberías ver algo como: `✓ FastMCP 3.0.0b1`
 
 ---
 
@@ -61,6 +57,7 @@ cat 01_fundamentos/README.md
 O abre en tu editor: `01_fundamentos/README.md`
 
 **Puntos clave a entender:**
+
 - ¿Qué es MCP?
 - ¿Qué es FastMCP?
 - Los 3 pilares (Components, Providers, Transforms)
@@ -73,11 +70,18 @@ O abre en tu editor: `01_fundamentos/README.md`
 Tu primer servidor MCP en 10 líneas:
 
 ```bash
-python 01_fundamentos/01_hola_mundo.py
+fastmcp run 01_fundamentos/01_hola_mundo.py:mcp
+```
+
+Para correrlo con HTTP
+
+```bash
+fastmcp run 01_fundamentos/01_hola_mundo.py:mcp fast
 ```
 
 **Qué deberías ver:**
-```
+
+```bash
 Server started...
 Ready to handle requests
 ```
@@ -85,8 +89,9 @@ Ready to handle requests
 El servidor está corriendo. ¡No cierres esta terminal todavía!
 
 **En otra terminal, verifica:**
+
 ```bash
-curl http://localhost:5000/health
+python client.py
 ```
 
 O simplemente observa que el servidor está activo.
@@ -103,12 +108,8 @@ Lee y ejecuta:
 python 01_fundamentos/02_conceptos.py
 ```
 
-Lee el archivo con atención:
-```bash
-cat 01_fundamentos/02_conceptos.py
-```
-
 **Observa:**
+
 - Cómo se usan los decoradores @mcp.tool, @mcp.resource, @mcp.prompt
 - Cómo se escriben los docstrings
 - Cómo retornan diccionarios
@@ -123,12 +124,8 @@ Ahora aprende sobre validación automática:
 python 01_fundamentos/03_tipos_de_datos.py
 ```
 
-Lee el archivo:
-```bash
-cat 01_fundamentos/03_tipos_de_datos.py
-```
-
 **Importante entender:**
+
 - `str`, `int`, `float`, `bool`
 - `List[int]`, `Dict[str, str]`
 - `Optional[str]`
@@ -209,8 +206,9 @@ if __name__ == "__main__":
 ```
 
 Ejecuta:
+
 ```bash
-python mi_primer_servidor.py
+python my_server.py
 ```
 
 ¡Felicidades! 🎉 Has creado tu primer servidor MCP
@@ -226,7 +224,7 @@ python mi_primer_servidor.py
 - [ ] Ejecutado `02_conceptos.py`
 - [ ] Entendido tipos de datos
 - [ ] Ejecutado `03_tipos_de_datos.py`
-- [ ] Creado `mi_primer_servidor.py`
+- [ ] Creado `my_server.py`
 - [ ] Verificado que funciona
 
 ¿Todo ✅? ¡Excelente! Ahora listo para DÍA 2
@@ -236,6 +234,7 @@ python mi_primer_servidor.py
 ## 📝 NOTAS IMPORTANTES
 
 ### Type Hints (Anotaciones de tipo)
+
 ```python
 @mcp.tool
 def sumar(a: int, b: int) -> int:  # type hints aquí
@@ -246,6 +245,7 @@ Los `int`, `str`, etc. después de `:` son type hints.
 FastMCP valida automáticamente que el cliente envíe el tipo correcto.
 
 ### Docstrings (Documentación)
+
 ```python
 @mcp.tool
 def mi_tool(x: int) -> int:
@@ -263,6 +263,7 @@ def mi_tool(x: int) -> int:
 El docstring se convierte en documentación que ve el cliente.
 
 ### Decoradores (Lo importante)
+
 ```python
 @mcp.tool        # Herramienta ejecutable
 @mcp.resource    # Dato de solo lectura
@@ -276,23 +277,29 @@ Los decoradores convierten funciones Python normales en componentes MCP.
 ## 🔍 SI ALGO FALLA
 
 ### Error: "ModuleNotFoundError: No module named 'fastmcp'"
+
 ```bash
 pip install fastmcp
 python -c "import fastmcp; print('OK')"
 ```
 
 ### Error: "Port already in use"
+
 Otro servidor está usando el puerto 5000. Cambia:
+
 ```python
 if __name__ == "__main__":
     mcp.run(port=8001)  # Usa otro puerto
 ```
 
 ### Error: "Syntax error"
+
 Copia exactamente el código. No cambies nada aún.
 
 ### Error: "Python version"
+
 Necesitas Python 3.11+:
+
 ```bash
 python --version
 ```
@@ -317,6 +324,7 @@ Cuando termines:
 ## 📅 DÍA 2
 
 Mañana aprenderás sobre COMPONENTES:
+
 - Tools en profundidad
 - Resources con datos
 - Prompts avanzados
@@ -329,6 +337,7 @@ Empieza con: `02_componentes/README.md`
 ## 💪 MOTIVACIÓN
 
 Acabas de:
+
 1. Instalar un framework profesional
 2. Entender un protocolo complejo
 3. Crear tu primer servidor MCP

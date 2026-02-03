@@ -6,7 +6,6 @@ FastMCP valida AUTOMÁTICAMENTE los tipos de datos.
 Aprende cómo usar tipos complejos y cómo FastMCP los maneja.
 """
 
-from datetime import datetime
 from typing import Dict, List, Optional
 
 from fastmcp import FastMCP
